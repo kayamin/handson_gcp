@@ -7,7 +7,7 @@ python-flask-sqlalchemy python-pymysql python-flaskext.wtf
 sudo pip install --upgrade setuptools
 sudo pip install --upgrade gcloud
 
-# 何故か以降のコマンドは無視される，前においても同じ．．
+# 何故か以降のコマンドは無視されるもしくは一部のみ実行されること等ある．理由は不明
 sudo mkdir /app
 sudo chmod 777 /app
 cd /app

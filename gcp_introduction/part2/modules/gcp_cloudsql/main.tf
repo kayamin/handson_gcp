@@ -20,12 +20,22 @@ resource "google_sql_database_instance" "main" {
     disk_type = "PD_SSD"
 
     ip_configuration {
-      ipv4_enabled = false # global ip の付与の有無，デフォルトは true なので注意, private にしたい場合はVPC等の事前準備が必要
+      ipv4_enabled = true # global ip の付与の有無，デフォルトは true なので注意, private にしたい場合はVPC等の事前準備が必要
+                          # true にしつつ private_network も設定すると public ip, private ip 両方設定できる
       private_network = var.google_compute_network_id
+      require_ssl = false
     }
 
     backup_configuration {
       enabled = false
     }
   }
+}
+
+# CloudSQL ではインスタンス作成時に自動的に パスワードなし root ユーザーが作成されるが, Terraform 側でインスタンス作成時にこれを削除している
+# DB ユーザーは以下 resource を用いて明示的に作成しなくてはならない
+resource "google_sql_user" "main" {
+  instance = google_sql_database_instance.main.name
+  name     = var.cloud_sql_user_name
+  password = var.cloud_sql_user_password
 }

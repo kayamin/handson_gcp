@@ -15,4 +15,6 @@ module "cloud_sql" {
   app_name = var.app_name
   google_compute_network_id = module.vpc_subnet.google_compute_network_id
   google_service_networking_connection_private_vpc_connection = module.vpc_subnet.google_service_networking_connection_private_vpc_connection
+  cloud_sql_user_name = var.cloud_sql_user_name
+  cloud_sql_user_password = var.cloud_sql_user_password
 }
