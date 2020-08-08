@@ -37,6 +37,7 @@ resource "google_compute_instance" "main" {
   # 既存のものを指定もできる?し，ここで各種サービスへの権限を定義することも可能
   # scopes で定義可能な権限の種類は現在はあまり多くない模様．詳細に設定したければ別途サービスアカウントを作ってそちらで指定するべきということか
   service_account {
+    # https://cloud.google.com/sdk/gcloud/reference/alpha/compute/instances/set-scopes#--scopes
     scopes = ["storage-rw", "sql-admin"] # CloudStorage, Cloud SQL の権限を付与
   }
 
