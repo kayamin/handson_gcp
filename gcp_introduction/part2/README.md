@@ -17,6 +17,7 @@
    
 
 - 参考
+    - [Terraform × GCP 入門](https://qiita.com/donko_/items/6289bb31fecfce2cda79)          
     - [Cloud SQL で private IP を付与する際に気をつけたいこと](https://tech.zeals.co.jp/entry/2020/03/05/140627?utm_source=feed)
     - [プライベート IP](https://cloud.google.com/sql/docs/mysql/private-ip?hl=ja)
     - [プライベート IP の構成](https://cloud.google.com/sql/docs/mysql/configure-private-ip?hl=ja)
@@ -24,8 +25,7 @@
         - terraform での構築例 
     - [Google Cloud SQL - Catch bad logins](https://stackoverflow.com/questions/60055828/google-cloud-sql-catch-bad-logins)
         - This is caused because you are trying to connect to the Cloud SQL instance using the gcloud command when you have configured a private IP. You will not be able to connect to your Cloud SQL instance with MySQL workbench either since they are not in the same network
-             
-             
+       
 ## google_compute_address と google_compute_global_address の違い
 
 - 用意できる静的IPには regional, global の２種類が存在する
